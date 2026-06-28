@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "omnibrain"
+version = "0.1.0"
+description = "OmniBrain - Advanced Autonomous Multi-Agent AI Operating System"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.2.0",
+    "langgraph>=0.0.26",
+    "langchain-core>=0.1.30",
+    "litellm>=1.31.0",
+    "qdrant-client>=1.7.0",
+    "sentence-transformers>=2.5.0",
+    "sqlalchemy[asyncio]>=2.0.25",
+    "asyncpg>=0.29.0",
+    "redis[hiredis]>=5.0.1",
+    "arq>=0.25.0",
+    "mcp>=0.1.0",
+    "opentelemetry-api>=1.22.0",
+    "opentelemetry-sdk>=1.22.0",
+    "python-dotenv>=1.0.1",
+    "structlog>=24.1.0",
+    "tenacity>=8.2.3",
+    "httpx>=0.26.0",
+    "beautifulsoup4>=4.12.3",
+    "alembic>=1.13.1",
+    "passlib>=1.7.4",
+    "bcrypt>=4.1.2",
+    "websockets>=12.0",
+    "sse-starlette>=2.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.5",
+    "mypy>=1.8.0",
+    "ruff>=0.2.0",
+    "httpx>=0.26.0"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 100
